@@ -1,5 +1,6 @@
-[gd_scene load_steps=39 format=3 uid="uid://cfniku76uf5ca"]
+[gd_scene load_steps=41 format=3 uid="uid://cfniku76uf5ca"]
 
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_5m68n"]
 [ext_resource type="Texture2D" uid="uid://cbpsvqvf1mql0" path="res://Art/Characters/player.png" id="2_opmp5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2glqf"]
@@ -287,12 +288,22 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3y3qv"]
+size = Vector2(13, 23)
+
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_5m68n")
+acceleration_time = 0.25
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
-position = Vector2(69, 67)
-scale = Vector2(2.83333, 2.66667)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.00008, -18.9999)
 sprite_frames = SubResource("SpriteFrames_xgoku")
 animation = &"Front Walk"
+autoplay = "Front Walk"
+frame_progress = 0.655968
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -11.5)
+shape = SubResource("RectangleShape2D_3y3qv")
+
+[node name="Camera2D" type="Camera2D" parent="."]

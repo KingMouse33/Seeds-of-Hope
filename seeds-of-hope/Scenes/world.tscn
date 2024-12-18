@@ -1,3 +1,17 @@
-[gd_scene format=3 uid="uid://cynuamjj3m8tl"]
+[gd_scene load_steps=3 format=3 uid="uid://cynuamjj3m8tl"]
+
+[ext_resource type="PackedScene" uid="uid://cfniku76uf5ca" path="res://Scenes/player.tscn" id="1_lf1by"]
+[ext_resource type="Texture2D" uid="uid://hlnctlh3d2co" path="res://Art/bg_grid.png" id="1_yvo2q"]
 
 [node name="World" type="Node2D"]
+texture_filter = 1
+
+[node name="BgGrid" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_yvo2q")
+region_enabled = true
+region_rect = Rect2(100, 100, 5000, 5000)
+
+[node name="Player" parent="." instance=ExtResource("1_lf1by")]
