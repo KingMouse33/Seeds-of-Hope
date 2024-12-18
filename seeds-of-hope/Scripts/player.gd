@@ -6,7 +6,6 @@ extends CharacterBody2D
 @onready var acceleration = max_speed/acceleration_time
 @onready var sprite = $AnimatedSprite2D
 
-var target_direction : Vector2
 var direction : Vector2 = Vector2.ZERO
 var speed : float
 var time : float
@@ -14,14 +13,13 @@ var move_time : float
 
 func _physics_process(delta):
 	time += delta
-	target_direction = Input.get_vector("left","right","up","down").normalized()
-	if target_direction:
+	direction = Input.get_vector("left","right","up","down").normalized()
+	if direction:
 		if speed < max_speed:
 			speed += acceleration * delta
 		else: speed = max_speed
-	if !target_direction:
+	if !direction:
 		speed = 0
-	direction = target_direction
 	direction.x = round(direction.x)
 	direction.y = round(direction.y)
 	direction = direction.normalized()
