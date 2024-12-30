@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://co7juvreunfyr"]
+
+[ext_resource type="Script" path="res://Scripts/clock.gd" id="1_3r7dh"]
+
+[node name="Clock" type="CanvasLayer"]
+script = ExtResource("1_3r7dh")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

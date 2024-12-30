@@ -23,7 +23,7 @@ func _physics_process(delta):
 	direction.x = round(direction.x)
 	direction.y = round(direction.y)
 	direction = direction.normalized()
-	print(speed)
+	#print(speed)
 	velocity = direction * speed
 	move_and_slide()
 
